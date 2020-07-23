@@ -1,0 +1,101 @@
+.card {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.task {
+    position: relative;
+    display: inline-flex;
+    border: 1px solid #efefef;
+    border-radius: 20px;
+    overflow: hidden;   
+    padding-left: 10px;
+    margin: 0 10px 20px 10px;
+    box-shadow: 1px 1px 2px #000;
+}
+
+.task:hover {
+    cursor: pointer;
+}
+
+.task > div > span {
+    padding: 0 40px 0 35px;
+    white-space: nowrap;
+}
+
+.task > *, .task > div > * {
+    margin: auto;
+    border: 0;
+}
+
+.task > div::before {
+    display: inline-block;
+    position: absolute;
+    left: 7px;
+}
+
+.task > .active::before {
+    content: "🟦";
+}
+
+.task > .complete::before {
+    content: "☑️";
+}
+
+.remove {
+    background-color: #efefef;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    transition: 0.3s;
+}
+
+.remove:hover {
+    background-color: #bebebe;
+    cursor: pointer;
+}
+
+.remove:focus {
+    outline: none;
+}
+
+.remove > div::before {
+    content: "❌";
+    display: block;
+}
+
+.status-filter {
+    text-align: center;
+}
+
+.status-filter > label {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+@media(max-width:769px) {
+    .tasks {
+        display: block;
+    }
+
+    .task {
+        width: 100%; 
+        margin: 0 0 20px 0;       
+    }
+
+    .task > div {
+        overflow-x: auto; 
+        max-width: 100%;
+    }
+
+    .task > div {
+        font-weight: bold;
+        font-size: 1.3em;
+    }
+
+    .status-filter {
+        display: inline-flex;
+        justify-content: space-around;
+    }
+
+}
